@@ -1,0 +1,7 @@
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.csproj.AssemblyReference.cache
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.AssemblyInfoInputs.cache
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.AssemblyInfo.cs
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.csproj.CoreCompileInputs.cache
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net5.0\BookMyShow.MvcApplicationPartsAssemblyInfo.cache
