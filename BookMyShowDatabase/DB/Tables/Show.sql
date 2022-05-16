@@ -5,5 +5,7 @@
 	EndTime nvarchar not null,
 	ShowDate date not null,
 	HallId int not null,
-	MovieID int not null
+	MovieID int not null,
+	IsDeleted bit not null,
+	DayDeleted date,
 )

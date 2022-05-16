@@ -60,6 +60,13 @@
     <Folder Include="DB\Tables" />
   </ItemGroup>
   <ItemGroup>
-    <Build Include="DB\Tables\Table1.sql" />
+    <Build Include="DB\Tables\Movie.sql" />
+    <Build Include="DB\Tables\Show.sql" />
+    <Build Include="DB\Tables\Theater.sql" />
+    <Build Include="DB\Tables\TheaterHall.sql" />
+    <Build Include="DB\Tables\Booking.sql" />
+    <Build Include="DB\Tables\CustomerSeat.sql" />
+    <Build Include="DB\Tables\Customer.sql" />
+    <Build Include="DB\Tables\City.sql" />
   </ItemGroup>
 </Project>

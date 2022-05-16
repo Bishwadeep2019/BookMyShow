@@ -4,5 +4,7 @@
 	CustomerName nvarchar not null,
 	Email nvarchar not null,
 	PhoneNumber nvarchar not null,
-	CityId int not null
+	CityId int not null,
+	IsDeleted bit not null,
+	DayDeleted date,
 )

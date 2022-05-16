@@ -17,6 +17,7 @@
 	ClassPrefix = "";
 	ClassSuffix = "";
 	TrackModifiedColumns = false;
+	IncludeViews =  true;
 	ExplicitColumns = true;
 	ExcludePrefix = new string[] {}; // Exclude tables by prefix.
 

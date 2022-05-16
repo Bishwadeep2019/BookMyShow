@@ -8,7 +8,7 @@
 //     Provider:               `System.Data.SqlClient`
 //     Connection String:      `Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True`
 //     Schema:                 ``
-//     Include Views:          `False`
+//     Include Views:          `True`
 
 using System;
 using System.Collections.Generic;
@@ -21,11 +21,11 @@ namespace BookMyShow.DataModels
 	public partial class BookMyShowDB : Database
 	{
 		public BookMyShowDB() 
-			: base("BookMyShow", " ")
+			: base("BookMyShow","")
 		{
 			CommonConstruct();
 		}
-		
+	
 		partial void CommonConstruct();
 		
 		public interface IFactory
@@ -110,6 +110,8 @@ namespace BookMyShow.DataModels
 		[Column] public DateTime BookingDate { get; set; }
 		[Column] public int CustomerId { get; set; }
 		[Column] public int ShowId { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.City")]
@@ -132,6 +134,8 @@ namespace BookMyShow.DataModels
 		[Column] public string Email { get; set; }
 		[Column] public string PhoneNumber { get; set; }
 		[Column] public int CityId { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.CustomerSeat")]
@@ -143,6 +147,8 @@ namespace BookMyShow.DataModels
 		[Column] public int Price { get; set; }
 		[Column] public int TheaterSeatId { get; set; }
 		[Column] public int BookingId { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.Movie")]
@@ -157,6 +163,8 @@ namespace BookMyShow.DataModels
 		[Column] public string MovieImageUrl { get; set; }
 		[Column] public string Genre { get; set; }
 		[Column] public string Duration { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.Show")]
@@ -170,6 +178,8 @@ namespace BookMyShow.DataModels
 		[Column] public DateTime ShowDate { get; set; }
 		[Column] public int HallId { get; set; }
 		[Column] public int MovieID { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.Theater")]
@@ -180,6 +190,8 @@ namespace BookMyShow.DataModels
 		[Column] public int Id { get; set; }
 		[Column] public string TheaterName { get; set; }
 		[Column] public int TotalHall { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
 	}
     
 	[TableName("dbo.TheaterHall")]
@@ -191,5 +203,33 @@ namespace BookMyShow.DataModels
 		[Column] public int TotalSeats { get; set; }
 		[Column] public int ShowID { get; set; }
 		[Column] public int TheaterId { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DayDeleted { get; set; }
+	}
+    
+	[TableName("dbo.CityTheaters")]
+	[ExplicitColumns]
+    public partial class CityTheater : BookMyShowDB.Record<CityTheater>  
+    {
+		[Column] public string theatername { get; set; }
+		[Column] public string StartTime { get; set; }
+	}
+    
+	[TableName("dbo.MoviesInCity")]
+	[ExplicitColumns]
+    public partial class MoviesInCity : BookMyShowDB.Record<MoviesInCity>  
+    {
+		[Column] public string title { get; set; }
+	}
+    
+	[TableName("dbo.TicketDetails")]
+	[ExplicitColumns]
+    public partial class TicketDetail : BookMyShowDB.Record<TicketDetail>  
+    {
+		[Column] public DateTime bookingdate { get; set; }
+		[Column] public string TheaterName { get; set; }
+		[Column] public int TotalSeats { get; set; }
+		[Column] public string Title { get; set; }
+		[Column] public string Language { get; set; }
 	}
 }

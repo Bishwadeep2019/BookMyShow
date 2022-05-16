@@ -6,5 +6,7 @@
 	Language nvarchar not null,
 	MovieImageUrl nvarchar not null,
 	Genre nvarchar not null,
-	Duration nvarchar not null
+	Duration nvarchar not null,
+	IsDeleted bit not null,
+	DayDeleted date,
 )

@@ -4,5 +4,7 @@
 	RequiredSeats int not null,
 	BookingDate date not null,
 	CustomerId int not null,
-	ShowId int not null
+	ShowId int not null,
+	IsDeleted bit not null,
+	DayDeleted date,
 )
