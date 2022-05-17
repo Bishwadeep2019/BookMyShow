@@ -4,5 +4,6 @@
 	TotalSeats int not null,
 	ShowID int not null,
 	TheaterId int not null,
-	
+	isDeleted bit not null,
+	DateDeleted date,
 )

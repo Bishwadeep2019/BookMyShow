@@ -13,21 +13,21 @@ namespace BookMyShow.Services
         }
         public Task<IEnumerable<CustomerDTO>> GetAll()
         {
-            var databaseContext = new PetaPoco.Database("BookMyShow", "");
+            var databaseContext = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             var customerdto =  databaseContext.Query<CustomerDTO>("Select * From Customer").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<CustomerDTO>>(customerdto));    
         }
 
         public CustomerDTO GetCustomer(int id)
         {
-            var databaseContext = new PetaPoco.Database("BookMyShow", "");
+            var databaseContext = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             var customerDeatils = databaseContext.Single<CustomerDTO>("SELECT * FROM Customer WHERE Id = @0", id);
             return customerDeatils;
         }
 
         public Customer Insert(Customer customer)
         {
-            var databaseContext = new PetaPoco.Database("BookMyShow", "");
+            var databaseContext = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             databaseContext.Insert(customer);
             return customer;
         }

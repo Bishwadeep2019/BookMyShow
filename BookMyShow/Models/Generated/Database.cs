@@ -21,11 +21,13 @@ namespace BookMyShow.DataModels
 	public partial class BookMyShowDB : Database
 	{
 		public BookMyShowDB() 
-			: base("BookMyShow","")
+			: base("BookMyShow", "System.Data.SqlClient")
 		{
 			CommonConstruct();
 		}
-	
+
+		
+		
 		partial void CommonConstruct();
 		
 		public interface IFactory
@@ -111,7 +113,7 @@ namespace BookMyShow.DataModels
 		[Column] public int CustomerId { get; set; }
 		[Column] public int ShowId { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.City")]
@@ -135,7 +137,7 @@ namespace BookMyShow.DataModels
 		[Column] public string PhoneNumber { get; set; }
 		[Column] public int CityId { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.CustomerSeat")]
@@ -148,7 +150,7 @@ namespace BookMyShow.DataModels
 		[Column] public int TheaterSeatId { get; set; }
 		[Column] public int BookingId { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.Movie")]
@@ -164,7 +166,7 @@ namespace BookMyShow.DataModels
 		[Column] public string Genre { get; set; }
 		[Column] public string Duration { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.Show")]
@@ -179,7 +181,19 @@ namespace BookMyShow.DataModels
 		[Column] public int HallId { get; set; }
 		[Column] public int MovieID { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
+	}
+    
+	[TableName("dbo.sysdiagrams")]
+	[PrimaryKey("diagram_id")]
+	[ExplicitColumns]
+    public partial class sysdiagram : BookMyShowDB.Record<sysdiagram>  
+    {
+		[Column] public string name { get; set; }
+		[Column] public int principal_id { get; set; }
+		[Column] public int diagram_id { get; set; }
+		[Column] public int? version { get; set; }
+		[Column] public byte[] definition { get; set; }
 	}
     
 	[TableName("dbo.Theater")]
@@ -191,7 +205,7 @@ namespace BookMyShow.DataModels
 		[Column] public string TheaterName { get; set; }
 		[Column] public int TotalHall { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.TheaterHall")]
@@ -204,7 +218,7 @@ namespace BookMyShow.DataModels
 		[Column] public int ShowID { get; set; }
 		[Column] public int TheaterId { get; set; }
 		[Column] public bool IsDeleted { get; set; }
-		[Column] public DateTime? DayDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.CityTheaters")]

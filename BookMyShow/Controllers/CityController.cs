@@ -16,7 +16,7 @@ namespace BookMyShow.Controllers
             _cityservice = cityservice;
         }
         [HttpGet]
-        public Task<IEnumerable<CityDTO>> Get()
+        public Task<IEnumerable<City>> Get()
         {
             return _cityservice.GetAll();
         }

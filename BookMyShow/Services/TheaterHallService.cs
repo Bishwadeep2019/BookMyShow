@@ -14,21 +14,21 @@ namespace BookMyShow.Services
 
         public Task<IEnumerable<TheaterHallDTO>> GetAll()
         {
-            var databaseContent = new PetaPoco.Database("BookMyShow", "");
+            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             var theaterhalldto = databaseContent.Query<Show>("SELECT * FROM TheaterHall").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<TheaterHallDTO>>(theaterhalldto));
         }
 
         public TheaterHallDTO GetTheaterHall(int id)
         {
-            var databaseContent = new PetaPoco.Database("BookMyShow", "");
+            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             var theaterHallDetails = databaseContent.Single<TheaterHallDTO>("SELECT * FROM TheaterHall WHERE Id = @0", id);
             return theaterHallDetails;
         }
 
         public TheaterHall Insert(TheaterHall theaterHall)
         {
-            var databaseContent = new PetaPoco.Database("BookMyShow", "");
+            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             databaseContent.Insert(theaterHall);
             return theaterHall;
         }

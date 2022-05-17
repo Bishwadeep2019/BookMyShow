@@ -5,5 +5,5 @@
 	TheaterSeatId int not null,
 	BookingId int not null,
 	IsDeleted bit not null,
-	DayDeleted date,
+	DateDeleted date,
 )

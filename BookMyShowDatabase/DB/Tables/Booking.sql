@@ -6,5 +6,5 @@
 	CustomerId int not null,
 	ShowId int not null,
 	IsDeleted bit not null,
-	DayDeleted date,
+	DateDeleted date,
 )

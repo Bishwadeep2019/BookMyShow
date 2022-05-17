@@ -4,7 +4,7 @@ namespace BookMyShow.Interface
 {
     public interface ICityService
     {
-        Task<IEnumerable<CityDTO>> GetAll();
+        Task<IEnumerable<City>> GetAll();
         City Insert(City city);
     }
 }
