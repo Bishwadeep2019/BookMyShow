@@ -25,12 +25,18 @@ container.Register<ITheaterHallService, TheaterHallService>();
 container.Register<IShowService, ShowService>();
 container.Register<IBookingService, BookingService>();
 container.Register<ICityService, CityService>();
-
 container.Register<ICustomerSeatService, CustomerSeatService>();
+container.Register<ISeatService, SeatService>();
+
 
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+builder.Services.AddCors(cors => cors.AddPolicy("MyPolicy", builder =>
+{
+    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+}));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -45,7 +51,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseRouting();
 
+app.UseCors("MyPolicy");
 app.UseAuthorization();
 
 app.MapControllers();

@@ -18,25 +18,23 @@ using PetaPoco;
 
 namespace BookMyShow.DataModels
 {
-	public partial class BookMyShowDB : Database
+	public partial class PetaPocoDB : Database
 	{
-		public BookMyShowDB() 
-			: base("BookMyShow", "System.Data.SqlClient")
+		public PetaPocoDB()
+			: base("BookMyShow", "")
 		{
 			CommonConstruct();
 		}
 
-		
-		
 		partial void CommonConstruct();
 		
 		public interface IFactory
 		{
-			BookMyShowDB GetInstance();
+			PetaPocoDB GetInstance();
 		}
 		
 		public static IFactory Factory { get; set; }
-        public static BookMyShowDB GetInstance()
+        public static PetaPocoDB GetInstance()
         {
 			if (_instance!=null)
 				return _instance;
@@ -44,10 +42,10 @@ namespace BookMyShow.DataModels
 			if (Factory!=null)
 				return Factory.GetInstance();
 			else
-				return new BookMyShowDB();
+				return new PetaPocoDB();
         }
 
-		[ThreadStatic] static BookMyShowDB _instance;
+		[ThreadStatic] static PetaPocoDB _instance;
 		
 		public override void OnBeginTransaction()
 		{
@@ -63,7 +61,7 @@ namespace BookMyShow.DataModels
         
 		public class Record<T> where T:new()
 		{
-			public static BookMyShowDB repo { get { return BookMyShowDB.GetInstance(); } }
+			public static PetaPocoDB repo { get { return PetaPocoDB.GetInstance(); } }
 			public bool IsNew() { return repo.IsNew(this); }
 			public object Insert() { return repo.Insert(this); }
 			public void Save() { repo.Save(this); }
@@ -105,7 +103,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.Booking")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class Booking : BookMyShowDB.Record<Booking>  
+    public partial class Booking : PetaPocoDB.Record<Booking>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public int RequiredSeats { get; set; }
@@ -119,7 +117,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.City")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class City : BookMyShowDB.Record<City>  
+    public partial class City : PetaPocoDB.Record<City>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string CityName { get; set; }
@@ -129,7 +127,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.Customer")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class Customer : BookMyShowDB.Record<Customer>  
+    public partial class Customer : PetaPocoDB.Record<Customer>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string CustomerName { get; set; }
@@ -143,7 +141,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.CustomerSeat")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class CustomerSeat : BookMyShowDB.Record<CustomerSeat>  
+    public partial class CustomerSeat : PetaPocoDB.Record<CustomerSeat>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public int Price { get; set; }
@@ -156,7 +154,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.Movie")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class Movie : BookMyShowDB.Record<Movie>  
+    public partial class Movie : PetaPocoDB.Record<Movie>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string Title { get; set; }
@@ -169,10 +167,22 @@ namespace BookMyShow.DataModels
 		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
+	[TableName("dbo.Seat")]
+	[PrimaryKey("Id")]
+	[ExplicitColumns]
+    public partial class Seat : PetaPocoDB.Record<Seat>  
+    {
+		[Column] public int Id { get; set; }
+		[Column] public int SeatId { get; set; }
+		[Column] public int HallId { get; set; }
+		[Column] public bool IsDeleted { get; set; }
+		[Column] public DateTime? DateDeleted { get; set; }
+	}
+    
 	[TableName("dbo.Show")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class Show : BookMyShowDB.Record<Show>  
+    public partial class Show : PetaPocoDB.Record<Show>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string StartTime { get; set; }
@@ -187,7 +197,7 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.sysdiagrams")]
 	[PrimaryKey("diagram_id")]
 	[ExplicitColumns]
-    public partial class sysdiagram : BookMyShowDB.Record<sysdiagram>  
+    public partial class sysdiagram : PetaPocoDB.Record<sysdiagram>  
     {
 		[Column] public string name { get; set; }
 		[Column] public int principal_id { get; set; }
@@ -199,19 +209,20 @@ namespace BookMyShow.DataModels
 	[TableName("dbo.Theater")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class Theater : BookMyShowDB.Record<Theater>  
+    public partial class Theater : PetaPocoDB.Record<Theater>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public string TheaterName { get; set; }
 		[Column] public int TotalHall { get; set; }
 		[Column] public bool IsDeleted { get; set; }
+		[Column] public int CityId { get; set; }
 		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
 	[TableName("dbo.TheaterHall")]
 	[PrimaryKey("Id")]
 	[ExplicitColumns]
-    public partial class TheaterHall : BookMyShowDB.Record<TheaterHall>  
+    public partial class TheaterHall : PetaPocoDB.Record<TheaterHall>  
     {
 		[Column] public int Id { get; set; }
 		[Column] public int TotalSeats { get; set; }
@@ -223,27 +234,38 @@ namespace BookMyShow.DataModels
     
 	[TableName("dbo.CityTheaters")]
 	[ExplicitColumns]
-    public partial class CityTheater : BookMyShowDB.Record<CityTheater>  
+    public partial class CityTheater : PetaPocoDB.Record<CityTheater>  
     {
-		[Column] public string theatername { get; set; }
+		[Column] public string TheaterName { get; set; }
+		[Column] public string CityName { get; set; }
 		[Column] public string StartTime { get; set; }
+		[Column] public int MovieID { get; set; }
+		[Column] public int TheaterId { get; set; }
 	}
     
 	[TableName("dbo.MoviesInCity")]
 	[ExplicitColumns]
-    public partial class MoviesInCity : BookMyShowDB.Record<MoviesInCity>  
+    public partial class MoviesInCity : PetaPocoDB.Record<MoviesInCity>  
     {
 		[Column] public string title { get; set; }
 	}
     
 	[TableName("dbo.TicketDetails")]
 	[ExplicitColumns]
-    public partial class TicketDetail : BookMyShowDB.Record<TicketDetail>  
+    public partial class TicketDetail : PetaPocoDB.Record<TicketDetail>  
     {
 		[Column] public DateTime bookingdate { get; set; }
 		[Column] public string TheaterName { get; set; }
 		[Column] public int TotalSeats { get; set; }
 		[Column] public string Title { get; set; }
 		[Column] public string Language { get; set; }
+	}
+    
+	[TableName("dbo.TotalSeats")]
+	[ExplicitColumns]
+    public partial class TotalSeat : PetaPocoDB.Record<TotalSeat>  
+    {
+		[Column] public int TotalSeats { get; set; }
+		[Column] public int theaterId { get; set; }
 	}
 }

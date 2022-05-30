@@ -34,6 +34,13 @@ namespace BookMyShow.Controllers
             return _movieservice.Insert(movie);
         }
 
+        [HttpPut]
+        public async Task<IActionResult> Update(Movie movie)
+        {
+            var movies =  _movieservice.Update(movie);
+            return Ok(movies);
+        }
+
     }
 }
 

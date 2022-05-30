@@ -8,5 +8,7 @@ namespace BookMyShow.Interface
         Task<IEnumerable<TheaterHallDTO>> GetAll();
         TheaterHallDTO GetTheaterHall(int id);
         TheaterHall Insert(TheaterHall theaterHall);
+
+        TotalSeatsDTO GetTotalSeats(int theaterId);
     }
 }

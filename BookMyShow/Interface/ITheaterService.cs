@@ -7,5 +7,7 @@ namespace BookMyShow.Interface
         Task<IEnumerable<TheaterDTO>> GetAll();
         TheaterDTO GetTheater(int id);
         Theater Insert(Theater theater);
+        Task<IEnumerable<CityTheaterDTO>> GetAllCityTheater();
+        Task<IEnumerable<CityTheaterDTO>> GetByName(string cityName, int movieId);
     }
 }

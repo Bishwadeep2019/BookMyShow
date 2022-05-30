@@ -15,7 +15,7 @@ namespace BookMyShow.Services
         public Task<IEnumerable<TheaterHallDTO>> GetAll()
         {
             var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var theaterhalldto = databaseContent.Query<Show>("SELECT * FROM TheaterHall").ToList();
+            var theaterhalldto = databaseContent.Query<TheaterHallDTO>("SELECT * FROM TheaterHall").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<TheaterHallDTO>>(theaterhalldto));
         }
 
@@ -32,5 +32,13 @@ namespace BookMyShow.Services
             databaseContent.Insert(theaterHall);
             return theaterHall;
         }
+
+        public TotalSeatsDTO GetTotalSeats(int theaterId)
+        {
+            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
+            var totalSeats = databaseContent.Single<TotalSeatsDTO>("SELECT * FROM TotalSeats WHERE  theaterId = @0", theaterId);
+            return totalSeats;
+        }
+
     }
 }

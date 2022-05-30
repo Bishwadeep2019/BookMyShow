@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,yBAAyB,CAAA;EACrB,UAAU,EAAE,MAAM;CAIrB;;AALD,AAEI,yBAFqB,CAErB,MAAM,CAAA;EACF,KAAK,EAAE,IAAI;CACd",
+    "sources": [
+        "bookticket.component.scss"
+    ],
+    "names": [],
+    "file": "bookticket.component.css"
+}

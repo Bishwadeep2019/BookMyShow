@@ -1,0 +1,33 @@
+.movie-details {
+  cursor: pointer;
+  background-color: #1f253a;
+  font-family: sans-serif;
+}
+
+.movie-details img {
+  width: 80%;
+  border-radius: 15px;
+}
+
+.movie-details p {
+  border: 1px solid white;
+  border-radius: 5px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.movie-details .movie-details-inner-container {
+  font-size: 18px;
+}
+
+.movie-details .movie-details-inner-container button {
+  background-color: #f84464;
+  color: white;
+}
+
+.movie-details .movie-details-inner-container .movie-title {
+  color: white;
+  font-size: 36px;
+}
+/*# sourceMappingURL=moviedetails.component.css.map */

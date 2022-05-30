@@ -1,0 +1,15 @@
+.movie-container {
+  text-align: center;
+}
+
+.movie-container .movie-img {
+  width: 100%;
+  height: 90%;
+  border-radius: 15px;
+}
+
+.movie-container button {
+  color: white;
+  background-color: #f84464;
+}
+/*# sourceMappingURL=moviecard.component.css.map */

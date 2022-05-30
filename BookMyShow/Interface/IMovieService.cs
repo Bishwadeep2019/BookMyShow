@@ -8,5 +8,7 @@ namespace BookMyShow.Interface
         MovieDTO GetMovie(int id);
 
         Movie Insert(Movie movie);
+
+        Movie Update(Movie movie);
     }
 }

@@ -14,7 +14,7 @@ namespace BookMyShow.Services
         public Task<IEnumerable<MovieDTO>> GetAll()
         {
             var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var moviedto = databaseContent.Query<Movie>("SELECT * FROM MoviesInCity").ToList();
+            var moviedto = databaseContent.Query<MovieDTO>("SELECT * FROM Movie").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<MovieDTO>>(moviedto));
         }
 
@@ -29,6 +29,13 @@ namespace BookMyShow.Services
         {
             var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
             databaseContent.Insert(movie);
+            return movie;
+        }
+
+        public Movie Update(Movie movie)
+        {
+            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
+            databaseContent.Update(movie);
             return movie;
         }
     }

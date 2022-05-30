@@ -16,6 +16,7 @@ namespace BookMyShow.Models
             CreateMap<Show, ShowDTO>();
             CreateMap<Theater, TheaterDTO>();
             CreateMap<TheaterHall, TheaterHallDTO>();
+            CreateMap<CityTheater, CityTheaterDTO>();
 
         }
     }

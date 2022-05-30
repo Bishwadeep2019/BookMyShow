@@ -1,0 +1,16 @@
+
+<div class="movie-details">
+    <div class="container d-flex">
+        <div class="py-4">
+            <img src="{{MovieDetails.movieImageUrl}}" alt="">
+        </div>
+        
+        <div class="movie-details-inner-container py-4">
+            <h1 class="fw-bold movie-title">{{MovieDetails.title}}</h1>
+            <p class="font-weight-normal text-light px-2 py-1">{{MovieDetails.language}}</p>
+            <p class="font-weight-normal text-light px-2 py-1">{{MovieDetails.genre}}</p>
+            <p class="font-weight-normal text-light px-2 py-1">{{MovieDetails.duration}}</p>
+            <button [routerLink]="['/citytheater',MovieDetails.id, cityName]" class="btn px-4 mt-3">Book Ticket</button>
+        </div>
+    </div>
+</div>

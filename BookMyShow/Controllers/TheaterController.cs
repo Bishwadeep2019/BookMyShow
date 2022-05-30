@@ -34,6 +34,18 @@ namespace BookMyShow.Controllers
             return _theaterservice.Insert(theater);
         }
 
+        [HttpGet("theater")]
+        public Task<IEnumerable<CityTheaterDTO>> GetCityTheater()
+        {
+            return _theaterservice.GetAllCityTheater();
+        }
+        [HttpGet("name")]
+        public Task<IEnumerable<CityTheaterDTO>> GetCityName(string name, int movieId)
+        {
+            return _theaterservice.GetByName(name, movieId);
+
+        }
+
     }
 }
 

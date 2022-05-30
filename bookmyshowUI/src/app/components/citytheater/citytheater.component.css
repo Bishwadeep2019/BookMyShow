@@ -1,0 +1,19 @@
+p {
+  border: 1px solid white;
+}
+
+.movie-details {
+  background-color: #1f253a;
+}
+
+.movie-details p {
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+.theater-name {
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 6px;
+}
+/*# sourceMappingURL=citytheater.component.css.map */

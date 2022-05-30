@@ -1,0 +1,14 @@
+.city-dropdown-menu {
+  text-align: center;
+}
+
+.city-dropdown-menu select {
+  background-color: #f84464;
+  color: white;
+}
+
+.city-dropdown-menu option {
+  background-color: white;
+  color: #f84464;
+}
+/*# sourceMappingURL=selectcity.component.css.map */

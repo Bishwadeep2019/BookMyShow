@@ -1,0 +1,35 @@
+.top-nav-container {
+  background-color: #333545;
+}
+
+.top-nav-container .bookmyshow-logo {
+  width: 150px;
+}
+
+.top-nav-container .form span {
+  position: absolute;
+  right: 17px;
+  top: 13px;
+  padding: 2px;
+  border-left: 1px solid #d1d5db;
+}
+
+.top-nav-container .left-pan {
+  padding-left: 7px;
+}
+
+.top-nav-container .left-pan i {
+  padding-left: 10px;
+}
+
+.top-nav-container .form-input {
+  text-indent: 33px;
+  border-radius: 10px;
+}
+
+.top-nav-container .form-input:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+/*# sourceMappingURL=topnav.component.css.map */

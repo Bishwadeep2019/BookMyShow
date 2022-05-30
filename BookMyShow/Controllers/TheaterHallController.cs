@@ -34,6 +34,13 @@ namespace BookMyShow.Controllers
             return _theaterhallservice.Insert(theaterHall);
         }
 
+        [HttpGet("totalseats")]
+        public async Task<IActionResult> GetSeats(int theaterId)
+        {
+            var totalSeats = _theaterhallservice.GetTotalSeats(theaterId);
+            return Ok(totalSeats);
+        }
+
     }
 }
 
