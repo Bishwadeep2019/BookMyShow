@@ -3,42 +3,36 @@ using BookMyShow.DataModels;
 using BookMyShow.Interface;
 using BookMyShow.Models.CoreModels;
 
-
 namespace BookMyShow.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class BookingController : ControllerBase
-    {
-       
-        private readonly IBookingService _bookingservice;
+    {       
+        private readonly IBookingService BookingService;
         public BookingController(IBookingService bookingservice)
         {
-            _bookingservice = bookingservice;
-        }
-        [HttpGet]
-        public Task<IEnumerable<BookingDTO>> Get()
-        {
-            return _bookingservice.GetAll();
-        }
-        [HttpGet("id")]
-        public async Task<IActionResult> GetById(int id)
-        {
-            var booking = _bookingservice.GetBookingById(id);
-            return Ok(booking);
-        }
-        
-        [HttpPost]
-        public Booking Create(Booking booking)
-        {
-            return _bookingservice.Insert(booking);
+            BookingService = bookingservice;
         }
 
-        //[HttpDelete("id")]
-        //public Task<IEnumerable<MovieDTO>> DeleteData(int id)
-        //{
-        //    return _bookingservice.Delete(id);
-        //}
+        [HttpGet("bookingdata")]
+        public Task<IEnumerable<BookingDTO>> GetAllBookingData()
+        {
+            return BookingService.GetAllBooking();
+        }
+        [HttpGet("id")]
+        public BookingDTO GetByBookingId(int id)
+        {
+            var booking = BookingService.GetBookingById(id);
+            return booking;
+        }
+        
+        [HttpPost("insert")]
+        public Booking InsertBooking(Booking booking)
+        {
+            return BookingService.InsertBookingDetails(booking);
+        }
+
     }
 }
 

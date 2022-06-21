@@ -1,17 +1,24 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
 import { MoviedetailsComponent } from './components/moviedetails/moviedetails.component';
 import { MoviecardComponent } from './components/moviecard/moviecard.component';
 import { BookticketComponent } from './components/bookticket/bookticket.component';
 import { CitytheaterComponent } from './components/citytheater/citytheater.component';
 import { SelectcityComponent } from './components/selectcity/selectcity.component';
+import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthGuard } from './components/guards/auth.guard';
 const routes: Routes = [
   
-  {path: 'moviedetails/:id/:cityName' , component: MoviedetailsComponent},
-  {path: 'citytheater/:id/:cityName', component: CitytheaterComponent},
-  {path: 'bookticket/:id/:time/:cityName/:theaterId', component: BookticketComponent},
-  {path: 'movies/:cityName', component: MoviecardComponent},
-  {path:'',component:SelectcityComponent }
+  {path: 'moviedetails/:id/:cityName' ,canActivate:[AuthGuard], component: MoviedetailsComponent},
+  {path: 'citytheater/:id/:cityName',canActivate:[AuthGuard], component: CitytheaterComponent},
+  {path: 'bookticket/:id/:time/:cityName/:theaterId',canActivate:[AuthGuard], component: BookticketComponent},
+  {path: 'movies/:cityName',canActivate:[AuthGuard], component: MoviecardComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'selectCity',canActivate:[AuthGuard], component: SelectcityComponent},
+  {path:'',component:LoginComponent}
 ];
 
 @NgModule({

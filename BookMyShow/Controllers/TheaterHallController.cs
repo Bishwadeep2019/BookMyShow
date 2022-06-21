@@ -11,33 +11,33 @@ namespace BookMyShow.Controllers
     public class TheaterHallController : ControllerBase
     {
 
-        private readonly ITheaterHallService _theaterhallservice;
+        private readonly ITheaterHallService TheaterHallService;
         public TheaterHallController(ITheaterHallService theaterhallservice)
         {
-            _theaterhallservice = theaterhallservice;
+            TheaterHallService = theaterhallservice;
         }
         [HttpGet]
         public Task<IEnumerable<TheaterHallDTO>> Get()
         {
-            return _theaterhallservice.GetAll();
+            return TheaterHallService.GetAll();
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetById(int id)
         {
-            var theaterHall = _theaterhallservice.GetTheaterHall(id);
+            var theaterHall = TheaterHallService.GetTheaterHall(id);
             return Ok(theaterHall);
         }
 
         [HttpPost]
         public TheaterHall Create(TheaterHall theaterHall)
         {
-            return _theaterhallservice.Insert(theaterHall);
+            return TheaterHallService.Insert(theaterHall);
         }
 
         [HttpGet("totalseats")]
         public async Task<IActionResult> GetSeats(int theaterId)
         {
-            var totalSeats = _theaterhallservice.GetTotalSeats(theaterId);
+            var totalSeats = TheaterHallService.GetTotalSeats(theaterId);
             return Ok(totalSeats);
         }
 

@@ -2,9 +2,5 @@ C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\bin\Debug\BookMyShowDa
 C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\bin\Debug\BookMyShowDatabase.dll
 C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\bin\Debug\BookMyShowDatabase.pdb
 C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\BookMyShowDatabase.sqlproj.AssemblyReference.cache
-C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\Model.xml
-C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\refactor.xml
-C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\postdeploy.sql
-C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\predeploy.sql
 C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\BookMyShowDatabase.dll
 C:\Users\bishw\source\repos\BookMyShow\BookMyShowDatabase\obj\Debug\BookMyShowDatabase.pdb

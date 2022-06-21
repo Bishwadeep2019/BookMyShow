@@ -1,29 +1,30 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpClientModule} from '@angular/common/http'
 import { Observable } from 'rxjs';
+import {Router} from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class ApiserviceService {
   readonly APIUrl = "https://localhost:7120/api";
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   getCities():Observable<any[]>{
     return this.http.get<any>(this.APIUrl+'/City');
   }
 
   getMovies():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl + '/Movie')
+    return this.http.get<any>(this.APIUrl +'/Movie')
   }
 
   getBooking():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl + '/Booking')
+    return this.http.get<any>(this.APIUrl +'/Booking')
   }
   getCustomer():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl + '/Customer')
+    return this.http.get<any>(this.APIUrl +'/Customer')
   }
   getCustomerSeat():Observable<any[]>{
-    return this.http.get<any>(this.APIUrl + '/CustomerSeat')
+    return this.http.get<any>(this.APIUrl +'/CustomerSeat')
   }
 
   getShow():Observable<any[]>{
@@ -61,5 +62,25 @@ export class ApiserviceService {
 
   insertBookedSeats(data:any):Observable<any[]>{
     return this.http.post<any>(`${this.APIUrl}/Seat`,data)
+  }
+
+  insertCustomerDetails(customer:any):Observable<any[]>{
+    return this.http.post<any>(`${this.APIUrl}/Auth/register`,customer);
+  }
+
+  getJwtToken(login:any):Observable<any>{
+    return this.http.post<any>(`${this.APIUrl}/Auth/login`,login);    
+  }
+
+  getToken(){
+    return sessionStorage.getItem('token');
+  }
+  isLoggedIn() {
+    return this.getToken() !== null;
+  }
+  
+  logout() {
+    sessionStorage.removeItem('token');
+    this.router.navigate(['login']);
   }
 }

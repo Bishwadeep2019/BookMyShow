@@ -11,27 +11,27 @@ namespace BookMyShow.Controllers
     public class ShowController : ControllerBase
     {
 
-        private readonly IShowService _showservice;
+        private readonly IShowService ShowService;
         public ShowController(IShowService showservice)
         {
-            _showservice = showservice;
+            ShowService = showservice;
         }
         [HttpGet]
         public Task<IEnumerable<ShowDTO>> Get()
         {
-            return _showservice.GetAll();
+            return ShowService.GetAllShow();
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetById(int id)
         {
-            var show = _showservice.GetShow(id);
+            var show = ShowService.GetShowById(id);
             return Ok(show);
         }
 
         [HttpPost]
         public Show Create(Show show)
         {
-            return _showservice.Insert(show);
+            return ShowService.InsertShowDetails(show);
         }
 
     }

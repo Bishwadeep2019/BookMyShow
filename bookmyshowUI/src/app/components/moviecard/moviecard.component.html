@@ -1,10 +1,10 @@
 <div class="container movie-container">
     <div class="d-flex">        
-            <div *ngFor = "let dataItem of MovieList" class="p-3" >
-                <img class="movie-img" src="{{dataItem.movieImageUrl}}"alt="{{dataItem.title}}">
-                <p class = "m-0 fw-bold">{{dataItem.title}}</p>
-                <p class = "m-0 fw-semibold">{{dataItem.genre}}</p>
-                <button [routerLink]="['/moviedetails',dataItem.id, cityName]" class="btn mt-2">Book Ticket</button>
+            <div *ngFor = "let movie of MovieList" class="p-3" >
+                <img class="movie-img" src="{{movie.movieImageUrl}}"alt="{{movie.title}}">
+                <p class = "m-0 fw-bold">{{movie.title}}</p>
+                <p class = "m-0 fw-semibold">{{movie.genre}}</p>
+                <button [routerLink]="['/moviedetails',movie.id, cityName]" class="btn mt-2">Book Ticket</button>
             </div>     
          </div>   
 </div>

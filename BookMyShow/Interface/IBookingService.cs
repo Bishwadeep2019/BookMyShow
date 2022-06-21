@@ -4,9 +4,9 @@ namespace BookMyShow.Interface
 {
     public interface IBookingService
     {
-        Task<IEnumerable<BookingDTO>> GetAll();
+        Task<IEnumerable<BookingDTO>> GetAllBooking();
         BookingDTO GetBookingById(int id);
-        Booking Insert(Booking booking);
-        //Task<IEnumerable<BookingDTO>> CancelBooking(int id);
+        Booking InsertBookingDetails(Booking booking);
+        
     }
 }

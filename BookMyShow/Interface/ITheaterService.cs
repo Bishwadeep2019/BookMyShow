@@ -4,9 +4,9 @@ namespace BookMyShow.Interface
 {
     public interface ITheaterService
     {
-        Task<IEnumerable<TheaterDTO>> GetAll();
+        Task<IEnumerable<TheaterDTO>> GetAllTheater();
         TheaterDTO GetTheater(int id);
-        Theater Insert(Theater theater);
+        Theater InsertTheaterDetails(Theater theater);
         Task<IEnumerable<CityTheaterDTO>> GetAllCityTheater();
         Task<IEnumerable<CityTheaterDTO>> GetByName(string cityName, int movieId);
     }

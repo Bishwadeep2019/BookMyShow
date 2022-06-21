@@ -5,10 +5,10 @@ namespace BookMyShow.Interface
     public interface IMovieService
     {
         Task<IEnumerable<MovieDTO>> GetAll();
-        MovieDTO GetMovie(int id);
+        MovieDTO GetMovieById(int id);
 
-        Movie Insert(Movie movie);
+        Movie InsertMovieDetails(Movie movie);
 
-        Movie Update(Movie movie);
+        Movie UpdateMovieDetails(Movie movie);
     }
 }

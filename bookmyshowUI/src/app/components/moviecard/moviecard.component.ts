@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from 'src/app/apiservice.service';
 import { ActivatedRoute} from '@angular/router';
+import { AllmovieapiService } from './allmovieapi.service';
 @Component({
   selector: 'app-moviecard',
   templateUrl: './moviecard.component.html',
@@ -8,7 +8,10 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class MoviecardComponent implements OnInit {
 
-  constructor(private service: ApiserviceService, public activatedRoute: ActivatedRoute ) { }
+  constructor(
+     private service: AllmovieapiService,
+     public activatedRoute: ActivatedRoute 
+     ) { }
 
   MovieList:any=[];
   cityName:any;

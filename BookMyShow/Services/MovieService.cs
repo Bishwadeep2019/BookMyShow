@@ -7,35 +7,35 @@ namespace BookMyShow.Services
     public class MovieService : IMovieService
     {
         private readonly AutoMapper.IMapper _mapper;
-        public MovieService(AutoMapper.IMapper mapper)
+
+        private PetaPocoDB _petPocoDB;
+        public MovieService(AutoMapper.IMapper mapper, PetaPocoDB pb)
         {
             _mapper = mapper;
+            this._petPocoDB = pb;
         }
         public Task<IEnumerable<MovieDTO>> GetAll()
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var moviedto = databaseContent.Query<MovieDTO>("SELECT * FROM Movie").ToList();
+            var moviedto = this._petPocoDB.Query<MovieDTO>("SELECT * FROM Movie").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<MovieDTO>>(moviedto));
         }
 
-        public MovieDTO GetMovie(int id)
+        public MovieDTO GetMovieById(int id)
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var movieDetails =  databaseContent.Single<MovieDTO>("SELECT * FROM Movie WHERE Id = @0", id);
+            
+            var movieDetails = this._petPocoDB.Single<MovieDTO>("SELECT * FROM Movie WHERE Id = @0", id);
             return movieDetails;
         }
 
-        public Movie Insert(Movie movie)
+        public Movie InsertMovieDetails(Movie movie)
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            databaseContent.Insert(movie);
+            this._petPocoDB.Insert(movie);
             return movie;
         }
 
-        public Movie Update(Movie movie)
+        public Movie UpdateMovieDetails(Movie movie)
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            databaseContent.Update(movie);
+            this._petPocoDB.Update(movie);
             return movie;
         }
     }

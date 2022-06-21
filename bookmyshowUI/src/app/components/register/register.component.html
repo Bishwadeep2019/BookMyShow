@@ -1,0 +1,15 @@
+<div class="register-user-container">
+  <form [formGroup]="form" (ngSubmit)="submit()" class="container">
+    <h1 class="h3 mb-3 fw-normal">Please register</h1>
+  
+    <input formControlName="UserName" class="form-control mb-3" placeholder="Name" required>
+  
+    <input formControlName="email" type="email" class="form-control mb-3 " placeholder="Email" required>
+  
+    <input formControlName="password" type="password" class="form-control mb-3" placeholder="Password" required>
+    
+    <!-- <input formControlName="number" type="number" class="form-control mb-3" placeholder="Phone Number" required> -->
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Submit</button>
+  </form>
+</div>

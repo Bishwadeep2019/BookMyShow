@@ -32,4 +32,12 @@
           box-shadow: none;
   border: none;
 }
+
+.top-nav-container button {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  font-size: 14px;
+  background-color: #f84464;
+  color: white;
+}
 /*# sourceMappingURL=topnav.component.css.map */

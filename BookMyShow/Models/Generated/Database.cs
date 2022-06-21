@@ -26,6 +26,13 @@ namespace BookMyShow.DataModels
 			CommonConstruct();
 		}
 
+		public PetaPocoDB(string connectionstring)
+				: base(connectionstring, "System.Data.SqlClient")
+		{
+			CommonConstruct();
+		}
+
+
 		partial void CommonConstruct();
 		
 		public interface IFactory
@@ -133,8 +140,7 @@ namespace BookMyShow.DataModels
 		[Column] public string CustomerName { get; set; }
 		[Column] public string Email { get; set; }
 		[Column] public string PhoneNumber { get; set; }
-		[Column] public int CityId { get; set; }
-		[Column] public bool IsDeleted { get; set; }
+		[Column] public bool? IsDeleted { get; set; }
 		[Column] public DateTime? DateDeleted { get; set; }
 	}
     
@@ -230,6 +236,18 @@ namespace BookMyShow.DataModels
 		[Column] public int TheaterId { get; set; }
 		[Column] public bool IsDeleted { get; set; }
 		[Column] public DateTime? DateDeleted { get; set; }
+	}
+    
+	[TableName("dbo.UserDetails")]
+	[PrimaryKey("Id")]
+	[ExplicitColumns]
+    public partial class UserDetail : PetaPocoDB.Record<UserDetail>  
+    {
+		[Column] public int Id { get; set; }
+		[Column] public string Email { get; set; }
+		[Column] public string Name { get; set; }
+		[Column] public byte[] PasswordHash { get; set; }
+		[Column] public byte[] PasswordSalt { get; set; }
 	}
     
 	[TableName("dbo.CityTheaters")]

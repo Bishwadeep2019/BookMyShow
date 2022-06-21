@@ -1,3 +1,18 @@
-<app-topnav></app-topnav>
-
-<router-outlet></router-outlet>
+<div>
+    <!-- <app-topnav></app-topnav> -->
+    <div class="top-nav-container">
+        <div class="d-flex container justify-content-between">
+          <div>
+            <img  class="bookmyshow-logo my-2" src="./assets/images/bookmyshowlogo.png" alt="image"/>  
+          </div>
+          <div class="mt-3">        
+              <button class="btn" routerLink="register" *ngIf="!display">SignUp</button>
+              <!-- <button class="btn" routerLink="login" *ngIf="display">SignIn</button> -->
+              <button class="btn" routerLink="login" *ngIf="displayLogoutButton" (click)="signout()">Logout</button>        
+          </div>
+          
+        </div>
+      </div>
+      
+    <router-outlet></router-outlet>
+</div>

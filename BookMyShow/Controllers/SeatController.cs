@@ -9,26 +9,26 @@ namespace BookMyShow.Controllers
     [ApiController]
     public class SeatController : ControllerBase
     {
-        private readonly ISeatService _seatservice;
+        private readonly ISeatService SeatService;
         public SeatController(ISeatService seatservice)
         {
-            _seatservice = seatservice;
+            SeatService = seatservice;
         }
         [HttpGet]
         public Task<IEnumerable<SeatDTO>> Get()
         {
-            return _seatservice.GetAllSeat();
+            return SeatService.GetAllSeat();
         }
         [HttpGet("hallId")]
         public Task<IEnumerable<SeatDTO>> GetById(int hallId)
         {
-            return _seatservice.GetSeatByHallId(hallId);
+            return SeatService.GetSeatByHallId(hallId);
         }
 
         [HttpPost]
         public Seat Create(Seat seat)
         {
-            return _seatservice.InsertBookedSeat(seat);
+            return SeatService.InsertBookedSeat(seat);
         }
     }
 }

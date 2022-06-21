@@ -11,33 +11,33 @@ namespace BookMyShow.Controllers
     public class MovieController : ControllerBase
     {
 
-        private readonly IMovieService _movieservice;
+        private readonly IMovieService MovieService;
         public MovieController(IMovieService movieservice)
         {
-            _movieservice = movieservice;
+            MovieService = movieservice;
         }
         [HttpGet]
         public Task<IEnumerable<MovieDTO>> Get()
         {
-            return _movieservice.GetAll();
+            return MovieService.GetAll();
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetById(int id)
         {
-            var movie = _movieservice.GetMovie(id);
+            var movie = MovieService.GetMovieById(id);
             return Ok(movie);
         }
 
-        [HttpPost]
+        [HttpPost("movieDetails")]
         public Movie Create(Movie movie)
         {
-            return _movieservice.Insert(movie);
+            return MovieService.InsertMovieDetails(movie);
         }
 
         [HttpPut]
         public async Task<IActionResult> Update(Movie movie)
         {
-            var movies =  _movieservice.Update(movie);
+            var movies =  MovieService.UpdateMovieDetails(movie);
             return Ok(movies);
         }
 

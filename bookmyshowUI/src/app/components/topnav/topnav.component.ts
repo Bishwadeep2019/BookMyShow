@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiserviceService } from 'src/app/apiservice.service';
 
 
 @Component({
@@ -8,10 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopnavComponent implements OnInit {
 
-
-  constructor() { }
+  display:boolean=false;
+  
+  constructor(private service: ApiserviceService) { }
 
   ngOnInit(): void {
+    if(this.service.getToken()){
+      this.display=true;      
+    }
   }
-
+  signout(){
+    this.service.logout();
+    this.display=false;
+  }
 }

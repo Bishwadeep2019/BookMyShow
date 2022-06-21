@@ -21,7 +21,6 @@ C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.Ge
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.AssemblyInfoInputs.cache
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.AssemblyInfo.cs
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.csproj.CoreCompileInputs.cache
-C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\staticwebassets.build.json
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\staticwebassets.development.json
@@ -57,3 +56,9 @@ C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\System.Securi
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\WebActivator.dll
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\bishw\source\repos\BookMyShow\BookMyShow\obj\Debug\net6.0\BookMyShow.MvcApplicationPartsAssemblyInfo.cs

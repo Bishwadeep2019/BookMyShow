@@ -11,27 +11,27 @@ namespace BookMyShow.Controllers
     public class CustomerController : ControllerBase
     {
 
-        private readonly ICustomerService _customerservice;
+        private readonly ICustomerService CustomerService;
         public CustomerController(ICustomerService customerservice)
         {
-            _customerservice = customerservice;
+            CustomerService = customerservice;
         }
         [HttpGet]
         public Task<IEnumerable<CustomerDTO>> Get()
         {
-            return _customerservice.GetAll();
+            return CustomerService.GetAllCustomer();
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetById(int id)
         {
-            var customer = _customerservice.GetCustomer(id);
+            var customer = CustomerService.GetCustomerById(id);
             return Ok(customer);
         }
 
         [HttpPost]
         public Customer Create(Customer customer)
         {
-            return _customerservice.Insert(customer);
+            return CustomerService.InsertCustomerDetails(customer);
         }
 
         //[HttpDelete("id")]

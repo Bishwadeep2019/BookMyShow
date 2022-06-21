@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
-import { ApiserviceService } from 'src/app/apiservice.service';
+import { CitytheaterapiService } from './citytheaterapi.service';
 @Component({
   selector: 'app-citytheater',
   templateUrl: './citytheater.component.html',
@@ -8,7 +8,7 @@ import { ApiserviceService } from 'src/app/apiservice.service';
 })
 export class CitytheaterComponent implements OnInit {
 
-  constructor(private service: ApiserviceService, public activatedRoute: ActivatedRoute ) { }
+  constructor(private service: CitytheaterapiService, public activatedRoute: ActivatedRoute ) { }
   
   MovieDetails:any= [];
   cityTheaterDetails:any =[];

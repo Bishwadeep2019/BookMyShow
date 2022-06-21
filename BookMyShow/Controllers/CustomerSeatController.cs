@@ -11,27 +11,27 @@ namespace BookMyShow.Controllers
     public class CustomerSeatController : ControllerBase
     {
 
-        private readonly ICustomerSeatService _customerseatservice;
+        private readonly ICustomerSeatService CustomerSeatService;
         public CustomerSeatController(ICustomerSeatService customerseatservice)
         {
-            _customerseatservice = customerseatservice;
+            CustomerSeatService = customerseatservice;
         }
         [HttpGet]
         public Task<IEnumerable<CustomerSeatDTO>> Get()
         {
-            return _customerseatservice.GetAll();
+            return CustomerSeatService.GetAll();
         }
         [HttpGet("id")]
         public async Task<IActionResult> GetSeatById(int id)
         {
-            var customerseat = _customerseatservice.GetById(id);
+            var customerseat = CustomerSeatService.GetById(id);
             return Ok(customerseat);
         }
 
         [HttpPost]
         public CustomerSeat Create(CustomerSeat customerseat)
         {
-            return _customerseatservice.Insert(customerseat);
+            return CustomerSeatService.Insert(customerseat);
         }
 
     }

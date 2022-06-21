@@ -4,5 +4,6 @@
 
 .ticket-booking-container select {
   width: 80px;
+  border-radius: 5px;
 }
 /*# sourceMappingURL=bookticket.component.css.map */

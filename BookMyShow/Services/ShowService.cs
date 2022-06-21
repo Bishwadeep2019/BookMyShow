@@ -7,28 +7,27 @@ namespace BookMyShow.Services
     public class ShowService : IShowService
     {
         private readonly AutoMapper.IMapper _mapper;
-        public ShowService(AutoMapper.IMapper mapper)
+        private PetaPocoDB _petPocoDB;
+        public ShowService(AutoMapper.IMapper mapper, PetaPocoDB pb)
         {
             _mapper = mapper;
+            this._petPocoDB = pb;
         }
-        public Task<IEnumerable<ShowDTO>> GetAll()
+        public Task<IEnumerable<ShowDTO>> GetAllShow()
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var moviedto = databaseContent.Query<Show>("SELECT * FROM Show").ToList();
+            var moviedto = this._petPocoDB.Query<Show>("SELECT * FROM Show").ToList();
             return Task.FromResult(_mapper.Map<IEnumerable<ShowDTO>>(moviedto));
         }
 
-        public ShowDTO GetShow(int id)
+        public ShowDTO GetShowById(int id)
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            var showDetails = databaseContent.Single<ShowDTO>("SELECT * FROM Show WHERE Id = @0", id);
+            var showDetails = this._petPocoDB.Single<ShowDTO>("SELECT * FROM Show WHERE Id = @0", id);
             return showDetails;
         }
 
-        public Show Insert(Show show)
+        public Show InsertShowDetails(Show show)
         {
-            var databaseContent = new PetaPoco.Database("Server=DEAD-INSIDE;Database=BookMyShow;Trusted_Connection=True;", "System.Data.SqlClient");
-            databaseContent.Insert(show);
+            this._petPocoDB.Insert(show);
             return show;
         }
 

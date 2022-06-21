@@ -1,10 +1,22 @@
 <div class="container">
   <div class="ticket-booking-container">
-    <h5>Select the number of seats you want</h5>
+   
     
-    <select name="noOfSeats" (change)="selectChangeHandler($event)">
-      <option value={{i}} *ngFor="let i of noOfSeats">{{ i }}</option>
-    </select>
-    <button (click)="book()">Book</button>
+    <div *ngIf="noOfSeats.length > 0">
+      <h5 class="mt-2">Select the number of seats you want</h5>
+      <select name="noOfSeats" class="p-1" (change)="selectChangeHandler($event)">
+        <option value={{seat}} *ngFor="let seat of noOfSeats" >{{ seat }}</option>
+      </select>
+      <br>
+    <button class="btn mt-4" (click)="book()">Book</button>
+    </div>
+
+    <div  *ngIf="noOfSeats.length <= 0">
+        <h2>The Show is housefull</h2>
+    </div>
+      
+    
+    
+    
   </div>
 </div>

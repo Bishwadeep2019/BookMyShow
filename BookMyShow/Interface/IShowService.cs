@@ -5,8 +5,8 @@ namespace BookMyShow.Interface
 {
     public interface IShowService
     {
-        Task<IEnumerable<ShowDTO>> GetAll();
-        ShowDTO GetShow(int id);
-        Show Insert(Show show);
+        Task<IEnumerable<ShowDTO>> GetAllShow();
+        ShowDTO GetShowById(int id);
+        Show InsertShowDetails(Show show);
     }
 }

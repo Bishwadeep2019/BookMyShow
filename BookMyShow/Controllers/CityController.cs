@@ -10,15 +10,15 @@ namespace BookMyShow.Controllers
     public class CityController : ControllerBase
     {
 
-        private readonly ICityService _cityservice;
+        private readonly ICityService CityService;
         public CityController(ICityService cityservice)
         {
-            _cityservice = cityservice;
+            CityService = cityservice;
         }
         [HttpGet]
         public Task<IEnumerable<City>> Get()
         {
-            return _cityservice.GetAll();
+            return CityService.GetAllCity();
         }
         //[HttpGet("id")]
         //public async Task<IActionResult> GetById(int id)
@@ -30,7 +30,7 @@ namespace BookMyShow.Controllers
         [HttpPost]
         public City Create(City city)
         {
-            return _cityservice.Insert(city);
+            return CityService.InsertCityDetails(city);
         }
 
         //[HttpDelete("id")]

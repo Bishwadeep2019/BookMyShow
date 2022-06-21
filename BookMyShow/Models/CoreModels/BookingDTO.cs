@@ -4,6 +4,7 @@
     {
 		public int Id { get; set; }
 		public int RequiredSeats { get; set; }
+		//selected seats
 		public DateTime BookingDate { get; set; }
 		public int CustomerId { get; set; }
 		public int ShowId { get; set; }

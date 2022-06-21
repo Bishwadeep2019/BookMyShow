@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiserviceService } from 'src/app/apiservice.service';
 import { ActivatedRoute} from '@angular/router';
+import { MoviedetailsapiService } from './moviedetailsapi.service';
 
 
 @Component({
@@ -10,7 +10,7 @@ import { ActivatedRoute} from '@angular/router';
 })
 export class MoviedetailsComponent implements OnInit {
 
-  constructor(private service: ApiserviceService, public activatedRoute: ActivatedRoute ) { }
+  constructor(private service: MoviedetailsapiService, public activatedRoute: ActivatedRoute ) { }
   
   MovieDetails:any= [];
   cityName:string= "0";
@@ -22,8 +22,7 @@ export class MoviedetailsComponent implements OnInit {
       this.getMovieDetailsById(id); 
      
     });  
-    this.getCityList(); 
-     
+    this.getCityList();      
   }
   
   getMovieDetailsById(id: any){

@@ -1,4 +1,4 @@
-<div>
+<div class="city-theater">
     <div class="movie-details text-light ">
         <div class="container">
             <h3 class="ps-2">{{MovieDetails.title}}</h3>
@@ -10,17 +10,18 @@
         </div>
         
     </div>
-    <div class="container d-flex mt-3">
+    <div class="container city-theater-details d-flex mt-3">
         <div class="me-4 ms-0">
             <h6>Theater Name</h6>
-            <div class="p-3"  *ngFor = "let data of cityTheaterDetails">
-                <p class="theater-name m-0">{{data.theaterName}}</p>
+            <div class="p-3"  *ngFor = "let theater of cityTheaterDetails">
+                <p class="theater-name m-0">{{theater.theaterName}}</p>
             </div>
         </div>
         <div class="ms-4">
             <h6>Show Time</h6>
-            <div class="p-3"  *ngFor = "let data of cityTheaterDetails">
-                <button [routerLink]="['/bookticket',MovieDetails.id, data.startTime,data.cityName, data.theaterId]" class="btn btn-primary">{{data.startTime}}</button>
+            <div class="p-3" *ngFor = "let theater of cityTheaterDetails">
+                <button [routerLink]="['/bookticket',MovieDetails.id, theater.startTime,theater.cityName, theater.theaterId]" 
+                class="btn">{{theater.startTime}}</button>
             </div>
         </div>
         

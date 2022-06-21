@@ -1,15 +1,30 @@
-p{
-    border: 1px solid white;
-}
-.movie-details{
-    background-color: #1f253a;
+
+.city-theater{ 
+    background: #B1D0E0 ;
+    height: 100vh;
+    color: black;
     p{
         border: 1px solid white;
-        border-radius: 5px;
+    }
+    .movie-details{
+        background-color: #1f253a;
+        p{
+            border: 1px solid white;
+            border-radius: 5px;
+        }
+    }
+    .city-theater-details{
+        
+        .theater-name{
+            border: 1px solid black;
+            border-radius: 5px;
+            padding:  6px;
+            font-weight: bold;
+        }
+    }
+    button{
+        background-color: #f84464;
+        color: white;
     }
 }
-.theater-name{
-    border: 1px solid black;
-    border-radius: 5px;
-    padding:  6px;
-}
+

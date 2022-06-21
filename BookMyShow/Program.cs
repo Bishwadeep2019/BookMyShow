@@ -12,8 +12,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddMvcCore();
 builder.Services.AddAutoMapper(typeof(MapperClass));
+//diff method
 var container = new Container();
 container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
+//remove
 builder.Services.AddSimpleInjector(container, options =>
 {
     options.AddAspNetCore().AddControllerActivation();
@@ -28,7 +30,13 @@ container.Register<ICityService, CityService>();
 container.Register<ICustomerSeatService, CustomerSeatService>();
 container.Register<ISeatService, SeatService>();
 
+//var provider = builder.Services.BuildServiceProvider();
+//var configuration = provider.GetRequiredService<IConfiguration>();
+//var name = configuration.GetValue<string>("BookMyShow");
 
+//Console.WriteLine(name);
+
+container.Register<PetaPocoDB>(() => new PetaPocoDB(builder.Configuration.GetConnectionString("BookMyShow")), Lifestyle.Singleton);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
