@@ -18,6 +18,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { TokenInterceptorService } from './service/token-interceptor.service';
 import { ApiserviceService } from './apiservice.service';
+import { TicketComponent } from './components/ticket/ticket.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,7 @@ import { ApiserviceService } from './apiservice.service';
     MoviedetailsComponent, 
     CitytheaterComponent, 
     BookticketComponent, 
-    SelectcityComponent, RegisterComponent, LoginComponent
+    SelectcityComponent, RegisterComponent, LoginComponent, TicketComponent
   ],
   imports: [    
     BrowserModule,

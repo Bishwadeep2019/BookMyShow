@@ -8,15 +8,11 @@
         <option value={{seat}} *ngFor="let seat of noOfSeats" >{{ seat }}</option>
       </select>
       <br>
-    <button class="btn mt-4" (click)="book()">Book</button>
+    <button class="btn mt-4" [routerLink]="['/ticket']" (click)="book()">Book</button>
     </div>
 
     <div  *ngIf="noOfSeats.length <= 0">
         <h2>The Show is housefull</h2>
-    </div>
-      
-    
-    
-    
+    </div> 
   </div>
 </div>

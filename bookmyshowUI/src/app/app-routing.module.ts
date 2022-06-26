@@ -9,6 +9,7 @@ import { SelectcityComponent } from './components/selectcity/selectcity.componen
 import { RegisterComponent } from './components/register/register.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from './components/guards/auth.guard';
+import { TicketComponent } from './components/ticket/ticket.component';
 const routes: Routes = [
   
   {path: 'moviedetails/:id/:cityName' ,canActivate:[AuthGuard], component: MoviedetailsComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'selectCity',canActivate:[AuthGuard], component: SelectcityComponent},
+  {path: 'ticket', canActivate:[AuthGuard], component: TicketComponent},
   {path:'',component:LoginComponent}
 ];
 

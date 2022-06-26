@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { TicketbookingapiService } from './ticketbookingapi.service';
 import { ShareDataService } from 'src/app/service/share-data.service';
+
 @Component({
   selector: 'app-bookticket',
   templateUrl: './bookticket.component.html',

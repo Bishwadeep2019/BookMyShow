@@ -9,11 +9,12 @@ import { ApiserviceService } from './apiservice.service';
 export class AppComponent {
   title : string = 'bookmyshowUI';
   display:boolean=false;
-  displayLogoutButton: boolean= true;
+  displayLogoutButton: boolean= false;
   constructor(private service: ApiserviceService) { }
   ngOnInit(): void {
     if(this.service.getToken()){
-      this.display=true;  
+      this.display=true;
+      this.displayLogoutButton=true;  
     }
   }
   signout(){
